@@ -3,7 +3,7 @@ import com.san.builds.Calculator
 
 def call(Map pipelineparams) { 
     Calculator calculator = new  Calculator(this)
-    Pipeline {
+    pipeline {
         environment {
         App_name = ${pipelineparams.app_name}
         }
