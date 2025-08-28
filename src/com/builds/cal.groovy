@@ -1,4 +1,4 @@
-package com.builds;
+package com.san.builds;
 
 class Calculator {
     def jenkins
