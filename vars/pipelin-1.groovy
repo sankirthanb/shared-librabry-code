@@ -1,17 +1,26 @@
 import com.builds.Calculator
 
-Calculator calculator = new  Calculator(this)
 
-Pipeline {
-    agent any 
-    stages {
-        stage {
-            steps {
-                script {
-                    println calculator.add(3,4)
-                }
+def call(Map pipelineparams) { 
+    Calculator calculator = new  Calculator(this)
+    Pipeline {
+        environment {
+        App_name = ${pipelineparams.app_name}
+        }
+        agent any 
+        stages {
+            stage {
+                steps {
+                    script {
+                        println calculator.add(3,4)
+                        echo "this is sent by ${App_name}"
+                    }
                  }
         }
         
     }
 }
+
+} ### since someone is calling me, i expect paramters so am called piplein params
+
+
