@@ -1,27 +1,24 @@
 import com.san.builds.Calculator
 
-
-def call(Map pipelineparams) { 
-    Calculator calculator = new  Calculator(this)
+def call(Map pipelineparams) {
+    Calculator calculator = new Calculator(this)
+    
+    // The pipeline block must be at the top level of the script
     pipeline {
+        agent any
         environment {
-        App_name = ${pipelineparams.app_name}
+            // Correct way to assign an environment variable from a parameter
+            APP_NAME = "${pipelineparams.app_name}"
         }
-        agent any 
         stages {
-            stage {
+            stage('My Stage') {
                 steps {
                     script {
-                        println calculator.add(3,4)
-                        echo "this is sent by ${App_name}"
+                        println calculator.add(3, 4)
+                        echo "This is sent by ${env.APP_NAME}"
                     }
-                 }
+                }
+            }
         }
-        
     }
 }
-
-} 
-// ### since someone is calling me, i expect paramters so am called piplein params
-
-
