@@ -1,4 +1,4 @@
-import com.san.builds.Calculator
+import com.san.builds.Calculator;
 
 
 def call(Map pipelineparams) { 
