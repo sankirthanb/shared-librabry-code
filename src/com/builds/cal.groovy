@@ -1,6 +1,6 @@
 package com.builds;
 
-class Calculators\ {
+class Calculator {
     def jenkins
     Calculator (jenkins) {
         this.jenkins = jenkins;
